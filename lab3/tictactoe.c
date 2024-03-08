@@ -2,6 +2,11 @@
 
 #define SIZE 3 // size of the tic-tac-toe
 
+struct Turn{
+	int x;
+	int y;
+};
+
 int board[SIZE][SIZE];
 
 void printGameOpening(){
@@ -44,22 +49,27 @@ void setBoard(int row, int col, int value){
 	board[row][col] = value;
 }
 
+struct Turn getRandomTurn(){
+	if
+}
+
 int main(){
 	printGameOpening();
 	
 	int running = 1;
-	int userTurn[2], computerTurn[2];
+//	int userTurn[2], computerTurn[2];
+	struct Turn userTurn, computerTurn;
 	while(running){
 		printBoard();
 		
 		// user's turn
 		printf("You play: ");
-		scanf("%d %d", &userTurn[0], &userTurn[1]);
-		setBoard(userTurn[0], userTurn[1], 1);
+		scanf("%d %d", &userTurn.x, &userTurn.y);
+		setBoard(userTurn.x, userTurn.y, 1);
 		
 		// computer's turn
-		computerTurn[0] = getRandomTurn();
-		printf("Computer plays: %d %d", computerTurn[0], computerTurn[1]);	
+		computerTurn = getRandomTurn();
+		printf("Computer plays: %d %d", computerTurn.x, computerTurn.y);	
 		
 //		running = 0;
 	}
