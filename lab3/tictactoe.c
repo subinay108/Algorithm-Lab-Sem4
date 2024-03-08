@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
+
 
 #define SIZE 3 // size of the tic-tac-toe
 
@@ -62,6 +64,7 @@ struct Turn getAvailableRandomTurn(){
 			}
 		}
 	}
+	srand(time(NULL));
 	int randomNo = rand() % available;
 	
 	for(i = 0; i < SIZE; i++){
