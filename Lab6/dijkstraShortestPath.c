@@ -15,8 +15,11 @@ int main(){
 	int n;
 	printf("Enter the no. of vertices: ");
 	scanf("%d", &n);
+	int e;
+	printf("Enter the no. of edges: ");
+	scanf("%d", &e);
 	int i, w, v1, v2;
-	for(i = 0; i < n; i++){
+	for(i = 0; i < e; i++){
 		printf("Enter the vertices and weight between them: ");
 		scanf("%d %d %d", &v1, &v2, &w);
 		Graph[v1-1][v2-1] = w;
@@ -50,26 +53,33 @@ void Dijkstra(int size, int source){
 	shortestPathArr[source] = 0;
 	
 	int minDist;
-	int midDistIndex = source;
+	int minDistIndex;
 	
-	
+	int i;
 	for(i = 0; i < size; i++){
 		
 		// find the vertex with min distance
+		minDist = INF;
 		for(v = 0; v < size; v++){
-			minDist = INF;
 			if(visitedArr[v] == 0 && shortestPathArr[v] < minDist){
-				minDist = v;
+				minDist = shortestPathArr[v];
+				minDistIndex = v;
 			}
 		 }
 		 
 		// vertex with min distance is visited
 		visitedArr[minDistIndex] = 1;
 		
+		// update the  shortestPathArr value of the adjacent vertices from the vertex with min distance
+		int u = minDistIndex;
 		for(v = 0; v < size; v++){
-			
+			if(!visitedArr[v] && Graph[u][v] 
+			&& shortestPathArr[u] + Graph[u][v] < shortestPathArr[v]){
+				shortestPathArr[v] = shortestPathArr[u] + Graph[u][v];
+			}
 		}
 	}
+
 }
 
 void displayGraph(int size){
