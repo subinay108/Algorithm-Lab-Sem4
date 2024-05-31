@@ -4,13 +4,14 @@
 #define SIZE 6
 
 int ht[SIZE];
-
+int count = 0;
 void find_subset_sum(int *set,int pos, int tg){
 	if(pos == SIZE){
 		return;	
 	}
 	if(set[pos] == tg){
 		ht[pos] = 1;
+        count++;
 		printf("Subset: ");
 		int i;
 		for(i = 0; i < SIZE; i++){
@@ -43,4 +44,7 @@ void main(){
 	printf("\n");
 	
 	find_subset_sum(set, 0, sum);
+    if(count == 0){
+        printf("No subset found");
+    }
 }
