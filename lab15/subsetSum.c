@@ -34,7 +34,6 @@ void find_subset_sum(int *set,int pos, int tg){
 void main(){
 	int set[SIZE] = {5, 10, 12, 13, 15, 18};
 	int sum = 30;
-	int ht[SIZE];
 	printf("Target Sum: %d\n", sum);
 	printf("Set: ");
 	int i;
